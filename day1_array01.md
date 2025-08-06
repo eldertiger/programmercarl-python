@@ -169,6 +169,8 @@ class Solution:
 ```
 ### 方法2： 快慢指针
 `i`, `j`分别为慢、快指针, 快指针将所有值赋值给慢指针，跳过val的值，继续赋值，直到数组结束。
+1. 时间复杂度O(n)；
+2. 空间复杂度O(1)。
 ```python
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
