@@ -151,9 +151,9 @@ class Solution:
 >>}
 >>```
 >如果所有的断言都通过，你的解决方案将会 通过。
-### 方法： 双指针
+### 方法1： 暴力法
 `i`,`j`分别指向开始和结束，每当遇到和`val`相等的值，则将`i+1,i+1,...,j`的值赋值给`i,i+1,...,j-1`, 执行`j -= 1`，否则，`i += 1`
-1. 时间复杂度O(n),最多比较n次，没有val；
+1. 时间复杂度O(n^2)，假设全是val，则需要执行(n+1)*n/2次赋值(若非矩阵直接赋值)；
 2. 空间复杂度O(1)。
 ```python
 class Solution:
@@ -164,6 +164,21 @@ class Solution:
                 nums[i:j]= nums[i+1:j+1]
                 j -= 1
             else:
+                i += 1
+        return i
+```
+### 方法2： 快慢指针
+`i`, `j`分别为慢、快指针, 快指针将所有值赋值给慢指针，跳过val的值，继续赋值，直到数组结束。
+```python
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        i, j = 0, 0
+        while j<len(nums):
+            if nums[j] == val:
+                j += 1
+            else:
+                nums[i]= nums[j]
+                j += 1
                 i += 1
         return i
 ```
