@@ -1,4 +1,4 @@
-# # 数组 part 2
+# 数组 part 2
 ## 一、 [209. 长度最小的子数组](https://leetcode.cn/problems/minimum-size-subarray-sum/description/)
 >给定一个含有 n 个正整数的数组和一个正整数 target 。
 >
