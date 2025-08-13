@@ -84,6 +84,8 @@ class Solution:
 ### 方法：
 在三数之和的基础上多增加一道循环，同时额外对两数之和进行剪枝条。
 除了$nums[i]>target$,还需要nums[i]>=0,因为只有正数才能够满足条件。
+1. 时间复杂度$O(n^3)$
+2. 空间复杂度$O(1)$
 ```python
 class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
