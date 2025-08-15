@@ -2,7 +2,7 @@
 
 ## 一、[232. 用栈实现队列](https://leetcode.cn/problems/implement-queue-using-stacks/)
 
-### 方法：
+### 方法1：
 使用两个栈(python用列表)来模拟队列，一个入队，一个出队。  
 入队直接进入A栈；  
 需要peek时，从B栈读出最上面的值即可，需要将A栈依次压到B栈中。判断如下：  
@@ -43,7 +43,7 @@ class MyQueue:
             return False
 ```
 
-## 方法二：
+### 方法2：
 也可以先pop，再append的方法实现peek，就和上面反过来就行了。
 ```python
 class MyQueue:
