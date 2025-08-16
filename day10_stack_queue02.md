@@ -133,3 +133,38 @@ class Solution:
             keys.pop()
         return result
 ```
+
+## 四、 [71. 简化路径](https://leetcode.cn/problems/simplify-path/description/)
+
+### 方法：
+首先需要分割字符串，使用栈存储目录名字；  
+分割字符串可以采用库函数`split`，也可以手动，跳过所有的`/`。  
+1. 对于非`..`和`.`的目录名，直接压入栈即可；  
+2. 对于`..`，相当于回到上一层，从栈中`pop`出一个目录名，若没有目录名，跳过即可；
+3. 对于`.`，一样跳过，就是本身。  
+
+最终使用`/`连接所有目录名即可。
+
+
+```python
+class Solution:
+    def simplifyPath(self, path: str) -> str:
+        stack = []
+        i = 0
+        while i < len(path):
+            if path[i] == "/":
+                i += 1
+            else:
+                tmp = ""
+                while i < len(path) and path[i] != "/":
+                    tmp += path[i]
+                    i += 1
+                if tmp == "..":
+                    if stack:
+                        stack.pop() 
+                elif tmp == ".":
+                    continue
+                else:
+                    stack.append(tmp)
+        return "/"+"/".join(stack)
+```
