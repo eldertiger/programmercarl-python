@@ -98,18 +98,19 @@ class Solution:
         for i in range(len(nums)):
             dic[nums[i]] += 1
         pri_que = [] #小顶堆
-        
         #用固定大小为k的小顶堆，扫描所有频率的数值
         for key, freq in dic.items():
-            heapq.heappush(pri_que, (freq, key))
-            if len(pri_que) > k: #如果堆的大小大于了K，则队列弹出，保证堆的大小一直为k
+            if len(pri_que) < k:
+                heapq.heappush(pri_que, (freq, key))
+            elif freq > pri_que[0][0]:
                 heapq.heappop(pri_que)
-        
+                heapq.heappush(pri_que, (freq, key))
         #找出前K个高频元素，因为小顶堆先弹出的是最小的，所以倒序来输出到数组
         result = [0] * k
         for i in range(k-1, -1, -1):
             result[i] = heapq.heappop(pri_que)[1]
         return result
+
 ```
 ### 方法2： 频次-元素列表
 统计好频次后，按照频次，统计同一频次的所有元素，然后对频次排序，从大到小输出元素到结果中，直到达到k个元素。
