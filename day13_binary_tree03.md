@@ -170,6 +170,7 @@ class Solution:
 ### 方法3：利用完全二叉树的特性
 如果当前节点的最左叶子节点和最右叶子节点深度相同，则说明当前节点为满二叉树，其节点数量为2**depth-1；  
 若深度不同，则分别求左右子树的节点数量，还是利用上述方法递归。
+理想的情况，完全满二叉树，只需要遍历$O(log n)$次，最差情况$O(logn*logn)$
 ```python
 class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:
