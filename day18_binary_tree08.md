@@ -63,7 +63,7 @@ class Solution:
 
 ## [108. 将有序数组转换为二叉搜索树](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/description/)
 
-### 方法： 递归法
+### 方法1： 递归法
 
 递归传入的参数为原始数组和左右边界；  
 父节点为数组正中间的值，左右子节点分别是左右两边的数组返回的父节点。
