@@ -134,7 +134,6 @@ class Solution:
         elif root.val < key:
             root.right = self.deleteNode(root.right, key)
         return root
-
 ```
 
 
