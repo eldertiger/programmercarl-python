@@ -85,6 +85,7 @@ print(dp[-1])
 
 ### 思路
 相当于将所有数字放入数字总和一半的背包中。
+时间复杂度$O(n^2)$, 空间复杂度$O(n)$
 ```python
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
