@@ -61,3 +61,24 @@ class Solution:
 ```
 
 ## [718. 最长重复子数组](https://leetcode.cn/problems/maximum-length-of-repeated-subarray/)
+
+### 动态规划思路
+`dp[i][j]`表示以`i-1, j-1`结尾的最长重复连续子序列的长度；  
+递推关系为若当前i-1,j-1对应下标的两个num相等，则：
+`dp[i][j] = dp[i-1][j-1]+1`
+
+初始化自然都初始化为0。
+
+
+```python
+class Solution:
+    def findLength(self, nums1: List[int], nums2: List[int]) -> int:
+        dp = [[0]*(len(nums2)+1) for _ in range(len(nums1)+1)]
+        res = 0
+        for i in range(1, len(nums1)+1):
+            for j in range(1, len(nums2)+1):
+                if nums1[i-1] == nums2[j-1]:
+                    dp[i][j] = dp[i-1][j-1]+1
+                res = max(res,dp[i][j])
+        return res
+```
