@@ -3,7 +3,7 @@
 ## [300.最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/description/)
 
 ### 动态规划
-以nums【i】为结尾的最长递增子序列的长度可以由 nums【0】为结尾的最长递增子序列长度、nums[1为结尾的最长长度、……nums【i-1】为结尾的最长长度 比较得到；  
+以nums[i]为结尾的最长递增子序列的长度可以由 nums[0]为结尾的最长递增子序列长度、nums[1]为结尾的最长长度、……nums[i-1]为结尾的最长长度 比较得到；  
 dp的含义是从0到当前i index的数组以$nums[i]$结尾的最长递增子序列。注意nums[i]结尾，不然就没有比较意义了；  
 递推公式为dp[i]等于i之前所有nums[j]小于nums[i]的dp[j]+1的最大值；  
 初始化自然都是1；  
