@@ -1,4 +1,4 @@
-# 动态规划 part9
+# 动态规划 part12
 
 ## [115. 不同的子序列](https://leetcode.cn/problems/distinct-subsequences/)
 ### 思路
